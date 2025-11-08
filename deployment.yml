@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: services081125
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: appservice081125
+  template:
+    metadata:
+      labels:
+        app: patservice081125
+    spec:
+      containers:
+      - name: hackathon081125
+        image: sreeni-acr-hackathon081125.azurecr.io/<microservice>:latest
+        ports:
+        - containerPort: 8080
